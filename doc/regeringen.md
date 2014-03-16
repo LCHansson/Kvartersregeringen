@@ -15,4 +15,6 @@ Om det största partiet misslyckas med att hitta en majoritet, går frågan om a
 Varför är Sverigedemokraterna med i vissa koalitioner?
 ======================================================
 
-Det är inte särskilt troligt att något partiblock hade velat bilda koalition med Sverigedemokraterna efter riksdagsvalet 2010. **Kvartersregeringen** simulerar ibland en regering där Sverigedemokraterna ingår. Detta händer då det inte finns någon möjlig majoritetskoalition i Riksdagen utan Sverigedemokraterna (något av de båda blocken + MP och/eller FP). Eftersom SD oftast röstar med Alliansen simulerar vi i dessa fall en koalition mellan samtliga Allianspartier samt SD. Kanske hade en sådan situation slutat med nyval istället, men det är inte säkert.
+Det är inte särskilt troligt att något partiblock hade velat bilda koalition med Sverigedemokraterna efter riksdagsvalet 2010. **Kvartersregeringen** simulerar ibland en regering där Sverigedemokraterna ingår. Detta händer i det fåtal fall då det inte finns någon möjlig majoritetskoalition i Riksdagen utan Sverigedemokraterna (något av de båda blocken + MP och/eller FP).
+
+Eftersom SD oftast röstar med Alliansen simulerar vi i dessa fall en koalition mellan samtliga Allianspartier samt SD. Kanske hade en sådan parlamentarisk situation slutat med nyval istället, men det är inte säkert.
