@@ -14,6 +14,8 @@ Du säger var du bor. Vi berättar hur landet skulle styras om ditt valdistrikt 
 
 Enkelt, roligt och informativt.
 
+Idécredd till konceptet går till [Leo Wallentin](https://twitter.com/leo_wallentin).
+
 ### Metod och verktyg
 
 Vi har utgått från [valresultatsdata på distriktsnivå](http://www.val.se/tidigare_val/val2010/valresultat/). Datan har bearbetats i __R__. Där har vi även skrivit den algoritm som räknar ut tänkbar mandatfördelning givet ett visst valresultat. Algoritmen fungerar i korthet så att den först försöker bilda en majoritetsregering utgående från största parti. Om det inte lyckas inom något av blocken går turen till det näst största. Därefter prövas koalitionsalternativ.
