@@ -6,7 +6,7 @@ http://kvartersregeringen.herokuapp.com/
 
 - Love Hansson, https://github.com/LCHansson
 - Jens Finnäs, https://github.com/jensfinnas
-- Jonathan Hise Kaldema, https://github.com/hisekaldma
+- Jonathan Hise Kaldma, https://github.com/hisekaldma
 
 Kvartersregeringen är ett roligt och engagerande sätt att visualisera valdata. I stället för abstrakta procentsatser och pajdiagram fokuserar vi på något som alla kan ta till sig: vilka personer skulle sitta i regeringen om just ditt kvarter fått bestämma. 
 
