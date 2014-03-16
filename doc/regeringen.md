@@ -14,7 +14,7 @@ Om det största partiet misslyckas med att hitta en majoritet, går frågan om a
 
 ### Hur funkar politiska preferenser?
 
-Inför valet 2010 var blockmentaliteten starkt cementerad inom svensk partipolitik. Därför är huvudalternativet för partierna alltid att bilda koalitioner inom det egna politiska blocket - (S) med (MP) och (V) och (M) med (FP), (KD) och (C).
+Inför valet 2010 var blockmentaliteten starkt cementerad inom svensk partipolitik. Därför är huvudalternativet för partierna alltid att bilda koalitioner inom det egna politiska blocket - (S) med (MP) och (V) -- (M) med (FP), (KD) och (C).
 
 I många delar av Sverige fick dock inget av blocken en egen majoritet av riksdagsrösterna. I dessa fall har vi simulerat att (S) kan ta hjälp av (FP), medan Alliansen kan ta hjälp av (MP) för att bilda regering.
 
