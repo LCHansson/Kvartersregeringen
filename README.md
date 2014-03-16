@@ -18,7 +18,9 @@ Idécredd till konceptet går till [Leo Wallentin](https://twitter.com/leo_walle
 
 ### Metod och verktyg
 
-Vi har utgått från [valresultatsdata på distriktsnivå](http://www.val.se/tidigare_val/val2010/valresultat/). Datan har bearbetats i __R__. Där har vi även skrivit den algoritm som räknar ut tänkbar mandatfördelning givet ett visst valresultat. Algoritmen fungerar i korthet så att den först försöker bilda en majoritetsregering utgående från största parti. Om det inte lyckas inom något av blocken går turen till det näst största. Därefter prövas koalitionsalternativ.
+Vi har utgått från [valresultatsdata på distriktsnivå](http://www.val.se/tidigare_val/val2010/valresultat/). Datan har bearbetats i __R__. Där har vi även skrivit den algoritm som räknar ut tänkbar mandatfördelning givet ett visst valresultat. Algoritmen fungerar i korthet så att den först försöker bilda en majoritetsregering utgående från största parti. Om det inte lyckas inom något av blocken går turen till det näst största. Därefter prövas koalitionsalternativ. 
+
+Simuleringen bygger på samma regelverk som gäller för mandatfördelningen till Sveriges riksdag och hur regeringsbildningen går till. För att bilda regeringar simuleras partiernas politiska preferenser för koalitionspartners.
 
 För att koppla en adress till rätt valdistrikt var vi tvungna att skriva ett eget litet API i __Flask/Python__. API:t tar emot ett koordinatpar och returnerar ett valdistrikt.
 
