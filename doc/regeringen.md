@@ -1,3 +1,13 @@
+Varför hamnar min sökning fel?
+==============================
+
+Ibland hittar applikationen fel adress när du söker. Vi jobbar på att förbättra detta, men tills vidare gäller att bäst precision i sökningen fås om man söker på följande form:
+
+"Adressvägen 1, Kommun"
+
+Alltså t.ex. "Sveavägen 28, Stockholm" eller "Bergsgatan 20, Malmö". Glöm inte stor bokstav i namn och ett komma mellan adress och kommun!
+
+
 Hur har vi räknat?
 ==================
 
