@@ -1,21 +1,20 @@
-Varför hamnar min sökning fel?
-==============================
-
-Ibland hittar applikationen fel adress när du söker. Vi jobbar på att förbättra detta, men tills vidare gäller att bäst precision i sökningen fås om man söker på följande form:
-
-"Adressvägen 1, Kommun"
-
-Alltså t.ex. "Sveavägen 28, Stockholm" eller "Bergsgatan 20, Malmö". Glöm inte stor bokstav i namn och ett komma mellan adress och kommun!
-
-
-Hur har vi räknat?
-==================
+Hur funkar Kvartersregeringen.se?
+=================================
 
 När du söker på en adress i Sverige, letar vi upp det _valdistrikt_ adressen ligger i. (Läs mer om [valdistrikt](http://www.val.se/det_svenska_valsystemet/allmant_om_val/valgeografi/index.html)) Vi tar sedan reda på hur invånarna i valdistriktet röstade i senaste riksdagsvalet och simulerar en möjlig regering.
 
 Simuleringen bygger på de regler som gäller för mandatfördelningen i Sveriges riksdag (4%-spärren och den _jämkade uddatalsmetoden_) och för hur regeringen bildas. (Läs mer om [riksdagsval](http://www.riksdagen.se/sv/Sa-funkar-riksdagen/Demokrati/Val-till-riksdagen/Sa-fordelas-platserna-i-riksdagen/) och [regeringsbildning](http://www.riksdagen.se/sv/Sa-funkar-riksdagen/Demokrati/Sa-bildas-regeringen/Sa-bildas-en-ny-regering/))
 
 Alla partier vill inte regera med alla andra partier. Det är till exempel otänkbart att Vänsterpartiet och Sverigedemokraterna skulle kunna sitta i samma regering. För att avgöra vilka partier som kan hamna i samma regeringskoalition simulerar vi en _preferensordning_ för alla partier. Det betyder att vi har angivit en skala för hur gärna ett parti kan tänka sig att bilda regering med något annat parti. Vi har också angivit vilka partier som inte alls kan tänka sig att regera tillsammans.
+
+
+### Varför hamnar min sökning fel?
+
+Ibland hittar applikationen fel adress när du söker. Vi jobbar på att förbättra detta, men tills vidare gäller att bäst precision i sökningen fås om man söker på följande form:
+
+"Adressvägen 1, Kommun"
+
+Alltså t.ex. "Sveavägen 28, Stockholm" eller "Bergsgatan 20, Malmö". Glöm inte stor bokstav i namn och ett komma mellan adress och kommun!
 
 
 ### Mer om regeringsbildning
