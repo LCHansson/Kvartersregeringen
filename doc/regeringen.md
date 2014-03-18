@@ -10,11 +10,15 @@ Alla partier vill inte regera med alla andra partier. Det är till exempel otän
 
 ### Varför hamnar min sökning fel?
 
-Ibland hittar applikationen fel adress när du söker. Vi jobbar på att förbättra detta, men tills vidare gäller att bäst precision i sökningen fås om man söker på följande form:
+*Det är för närvarande svårt att söka på "rätt" adress i Kvartersregeringen.* Applikationen zoomar ofta in på en gata med rätt namn men i fel stad, eller har svårt att identifiera rätt gatnummer. Vi är medvetna om problemet och arbetar på att förbättra detta.
+
+Tills vidare gäller att bäst precision i sökningen fås om man söker på följande form:
 
 "Adressvägen 1, Kommun"
 
 Alltså t.ex. "Sveavägen 28, Stockholm" eller "Bergsgatan 20, Malmö". Glöm inte stor bokstav i namn och ett komma mellan adress och kommun!
+
+*För gator i Göteborg, prova att söka på "Gothenburg" istället för Göteborg!*
 
 
 ### Mer om regeringsbildning
