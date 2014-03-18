@@ -43,8 +43,9 @@ findSeats <- function(voteList, threshold = 4, seats = 349) {
   
   
   # The number of seats are distributed among the remaining parties using
-  # Sainte-Laguë
+  # Saint-Laguë
   mandateList = list(S=0, V=0, MP=0, M=0, FP=0, KD=0, C=0, SD=0, FI=0, PP=0, SPI=0, OVR=0, BL=0, OG=0)
+  count = 0
   
   for (i in 1:seats) {
     seatWinner = which.max(sapply(names(partiResults), function(parti) {
@@ -54,7 +55,15 @@ findSeats <- function(voteList, threshold = 4, seats = 349) {
     mandateList[names(seatWinner)] = mandateList[[names(seatWinner)]] + 1
   }
   
-  return(mandateList)
+  mandateList = mandateList[mandateList != 0]
+  
+  # Return a vector of lists
+  
+  mandateVector = lapply(1:length(mandateList), function(i) {
+    list(party = names(mandateList[i]), seats = mandateList[i][[1]])
+  })
+  
+  return(mandateVector)
 }
 
 
@@ -95,24 +104,37 @@ findGovernment <- function(seatList) {
     SD = c("M","KD","C","S")
   )
   
-  # First we need to determine the majority threshold.
-  numSeats = sum(sapply(seatList, sum))
+  partyList = sapply(seatList, function(i) {
+    party = i$seats
+    names(party) = i$party
+    return(c(party))
+  })
+  
+  # First we need to determine the majority threshold by looking at the number of seats
+  numSeats = sum(as.integer(sapply(seatList, unlist)[2,]))
   majorityThreshhold = floor(numSeats/2) + 1
   
-  # The biggest party is fetched from the seat List
-  biggestParty = names(which.max(seatList))
+  # The position biggest party in the seat list is located
+  biggestParty = names(which.max(partyList))
   
   # The biggest party makes the first attempt at forming a coalition as determined by
   # its coalition preferences
   coalition = list()
   
-  
   for (partner in c(biggestParty, coalitionPreferences[[biggestParty]])) {
-    coalition = append(coalition, seatList[partner])
+    party = list(unlist(lapply(seatList, function(i) {
+      if (i$party == partner) {
+        return(i$seats)
+      }
+    })))
+    names(party) = partner
+    coalition = append(coalition, party)
     coalitionSeats = sum(unlist(coalition))
     if (coalitionSeats >= majorityThreshhold)
       break
   }
+  
+  
   
   # If there is a successful coalition, we have a winner!
   # Otherwise, repeat the procedure for the second biggest party.
@@ -120,12 +142,18 @@ findGovernment <- function(seatList) {
     return(coalition)
   } else {
     
-    secondParty = names(which.max(seatList[names(seatList) != biggestParty]))
+    secondParty = names(which.max(partyList[names(partyList) != biggestParty]))
     
     coalition = list()
     
     for (partner in c(secondParty, coalitionPreferences[[secondParty]])) {
-      coalition = append(coalition, seatList[partner])
+      party = list(unlist(lapply(seatList, function(i) {
+        if (i$party == partner) {
+          return(i$seats)
+        }
+      })))
+      names(party) = partner
+      coalition = append(coalition, party)
       coalitionSeats = sum(unlist(coalition))
       if (coalitionSeats >= majorityThreshhold)
         break
@@ -138,9 +166,19 @@ findGovernment <- function(seatList) {
   if (coalitionSeats >= majorityThreshhold) {
     return(coalition)
   } else {
-    coalition = list()
     message("Could not find a successful government coalition. Forming fascist government.")
-    coalition = append(coalition, c(seatList["M"], seatList["FP"], seatList["KD"], seatList["C"], seatList["SD"]))
+    uglyCoalitionParties = c("M","FP","C","KD","SD")
+    
+    coalition = list()
+    for (partner in uglyCoalitionParties) {
+      party = list(unlist(lapply(seatList, function(i) {
+        if (i$party == partner) {
+          return(i$seats)
+        }
+      })))
+      names(party) = partner
+      coalition = append(coalition, party)
+    }
     return(coalition)
   }
 }
@@ -153,7 +191,7 @@ findGovernment <- function(seatList) {
 #' 
 #' Once the number of seats by party have been determined, we appoint certain persons
 #' for key minister offices. The rest of the seats are assigned to a party but
-#' we do not appoint specific person.
+#' we do not appoint specific persons to the offices.
 findMinisters <- function(govt, seats = 20) {
   
   # Define potential persons to be appointed to each minister

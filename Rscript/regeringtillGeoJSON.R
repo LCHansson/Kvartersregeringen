@@ -1,13 +1,22 @@
 ## Munging script for inserting government formation data into our geoJSON file of electoral districts
 #' The task at hand is as follows. For each electoral district:
 #' - Calculate government formation based on election results in that district
+#' - Add lists of seats in parliament and government and appointed ministers to the geoJSON data
 #' - Write results to the geoJSON file (a list in geoData$features[[i]]$properties)
+#' 
+#' The code in this script depends on the methods defined in 'regeringsbildning.R'.
+
 
 ## Libraries
 require(stringr)
 require(rgdal)
 require(RJSONIO)
 require(data.table)
+
+
+## debug?
+DEBUG = FALSE
+subsetRange = 1:10
 
 
 ## Read data
@@ -17,9 +26,6 @@ system.time({
 # geoDataBk <- copy(geoData)
 # geoData <- copy(geoDataBk)
 
-## TEmporary workaround: Subset file
-# geoData$features <- geoData$features[109]
-
 electionData <- data.table(read.table(
   file = "data/valresultat/slutligt_valresultat_valdistrikt_R.skv",
   header = TRUE,
@@ -27,6 +33,11 @@ electionData <- data.table(read.table(
   fileEncoding = "ISO8859-1",
   stringsAsFactors = FALSE
 ))
+
+# For debugging purposes only:: Subset file
+if (DEBUG)
+  geoData$features <- geoData$features[subsetRange]
+
 
 # Clean election data
 electionVarNames = c("LAN","KOM","VALDIST", names(electionData)[str_detect(names(electionData), ".proc")])
@@ -41,14 +52,20 @@ electionData[,VDNAMN := paste0(
 setkey(electionData, "VDNAMN")
 
 
-## Fill up the geoJSON object with government formation
+## Fill up the geoJSON object with government formation and seats in parliament
+if (DEBUG) {
+  loopRange = subsetRange
+} else {
+  loopRange = 1:length(geoData$features)
+}
+
 system.time({
-  for (i in 1:length(geoData$features)) {
-    #   for (i in 1:2) {
+  for (i in loopRange) {
     
     # Find government
     voteList = electionData[VDNAMN == geoData$features[[i]]$properties[[1]]]
     seats = findSeats(voteList)
+    
     govt = findGovernment(seats)
     if (is.null(govt))
       next()
@@ -58,17 +75,21 @@ system.time({
     # Write government as tuples to geoData
     geoData$features[[i]]$properties = append(
       geoData$features[[i]]$properties,
-      c(government = list(ministers))
+      c(
+        government = list(ministers),
+        seatsInParliament = list(seats)
+      )
     )
   }
 })
 
 ## Write back to the geoJSON file
-# cat(toJSON(geoData, digits = 7))
+if (DEBUG)
+  cat(toJSON(geoData, digits = 7))
 
 system.time(
+if (DEBUG)
+  writeLines(toJSON(geoData, digits = 7), "app/data/sample_govt_valdistrikt2010.geojson")
+else
   writeLines(toJSON(geoData, digits = 7), "app/data/govt_valdistrikt2010.geojson")
 )
-
-
-# toJSON(geoData)
