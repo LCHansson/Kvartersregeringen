@@ -6,7 +6,7 @@ http://kvartersregeringen.herokuapp.com/
 
 - Love Hansson, https://github.com/LCHansson
 - Jens Finnäs, https://github.com/jensfinnas
-- Jonathan Hise Kaldema, https://github.com/hisekaldma
+- Jonathan Hise Kaldma, https://github.com/hisekaldma
 
 Kvartersregeringen är ett roligt och engagerande sätt att visualisera valdata. I stället för abstrakta procentsatser och pajdiagram fokuserar vi på något som alla kan ta till sig: vilka personer skulle sitta i regeringen om just ditt kvarter fått bestämma. 
 
@@ -18,7 +18,9 @@ Idécredd till konceptet går till [Leo Wallentin](https://twitter.com/leo_walle
 
 ### Metod och verktyg
 
-Vi har utgått från [valresultatsdata på distriktsnivå](http://www.val.se/tidigare_val/val2010/valresultat/). Datan har bearbetats i __R__. Där har vi även skrivit den algoritm som räknar ut tänkbar mandatfördelning givet ett visst valresultat. Algoritmen fungerar i korthet så att den först försöker bilda en majoritetsregering utgående från största parti. Om det inte lyckas inom något av blocken går turen till det näst största. Därefter prövas koalitionsalternativ.
+Vi har utgått från [valresultatsdata på distriktsnivå](http://www.val.se/tidigare_val/val2010/valresultat/). Datan har bearbetats i __R__. Där har vi även skrivit den algoritm som räknar ut tänkbar mandatfördelning givet ett visst valresultat. Algoritmen fungerar i korthet så att det största partiet får en chans att bilda regering, antingen själva eller i koalition med andra. Om det inte lyckas går turen vidare till det näst största partiet, osv.
+
+Simuleringen bygger på samma regelverk som gäller för mandatfördelningen till Sveriges riksdag och hur regeringsbildningen går till. För att bilda regeringar simuleras partiernas politiska preferenser för koalitionspartners.
 
 För att koppla en adress till rätt valdistrikt var vi tvungna att skriva ett eget litet API i __Flask/Python__. API:t tar emot ett koordinatpar och returnerar ett valdistrikt.
 
