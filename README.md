@@ -14,7 +14,7 @@ Du säger var du bor. Vi berättar hur landet skulle styras om ditt valdistrikt 
 
 Enkelt, roligt och informativt.
 
-Idécredd till konceptet går till [Leo Wallentin](https://twitter.com/leo_wallentin).
+Baserat på en ursprungsidé av [Adi Eyal](https://github.com/adieyal), och ett [koncept](https://docs.google.com/document/d/1bFJINKyBW5CeE04gxowvYDsMFwzoZdNuDZt9nuEjnDA/edit) av [Leo Wallentin](http://leowallentin.se), Jens Finnäs och Peter Grensund.
 
 ### Metod och verktyg
 
